@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import { Router } from 'react-router-dom'
 import history from './routes/history'
 import Routes from './routes/Routes'
@@ -10,4 +11,4 @@ const App = () => (
   </Router>
 )
 
-export default App
+export default hot(module)(App)
