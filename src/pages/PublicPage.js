@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import StarWarsCrawl from '../components/crawl/StarWarsCrawl'
 import OpeningTitle from '../components/title/OpeningTitle'
+import SkipButton from '../components/button/SkipButton'
 import starWarsIntro from '../assets/star-wars-intro.mp3'
+import history from '../routes/history'
 
 export class PublicPage extends Component {
   componentDidMount () {
+    setTimeout(() => history.push('/home'), 30000)
     const audio = new Audio(starWarsIntro)
     audio.play()
   }
@@ -22,6 +25,7 @@ export class PublicPage extends Component {
           <p>Are you prepared? Then use the force!</p>
         </StarWarsCrawl>
         <OpeningTitle>Star Quiz</OpeningTitle>
+        <SkipButton />
       </>
     )
   }
