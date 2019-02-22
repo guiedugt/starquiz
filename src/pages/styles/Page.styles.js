@@ -6,6 +6,7 @@ const pageStyle = css`
   flex-direction: column;
   flex: 1;
   width: 100%;
+  max-width: 75rem;
   padding: 0.75rem;
   margin: 0 auto;
 `

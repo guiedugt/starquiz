@@ -2,6 +2,7 @@
 import { jsx, css } from '@emotion/core'
 
 const headerStyle = css`
+  z-index: 1;
   width: 100%;
   background: transparent;
   display: flex;
