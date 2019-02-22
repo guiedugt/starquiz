@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "7804374e7ba49b8bebd0",
+    "revision": "1c7b85bc7adaffab504a",
     "url": "/starquiz/static/css/main.d07e2e7b.chunk.css"
   },
   {
-    "revision": "7804374e7ba49b8bebd0",
-    "url": "/starquiz/static/js/main.7804374e.chunk.js"
+    "revision": "1c7b85bc7adaffab504a",
+    "url": "/starquiz/static/js/main.1c7b85bc.chunk.js"
   },
   {
     "revision": "1d01c722e6839e0b48ee",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/starquiz/static/media/starjedi.cc3019aa.ttf"
   },
   {
-    "revision": "4418164e4a62853dae406c1f1edd388a",
+    "revision": "3eb094002652469d7727095ccb882efd",
     "url": "/starquiz/index.html"
   }
 ];
