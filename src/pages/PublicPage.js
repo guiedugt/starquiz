@@ -22,7 +22,7 @@ export class PublicPage extends Component {
           <p>You can only try to guess a character's name once.</p>
           <p>Are you prepared? Then use the force!</p>
         </StarWarsCrawl>
-        <audio src={starWarsIntro} autoPlay />
+        <iframe src={starWarsIntro} title='autoplay' allow='autoplay' />
         <OpeningTitle>Star Quiz</OpeningTitle>
         <SkipButton />
       </>
