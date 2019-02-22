@@ -1,11 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
 import { SkipButton } from '../SkipButton'
 
 const props = {
-  history: { push: () => { } },
-  isLogged: false
+  children: 'mock',
+  to: '/mock'
 }
 
 describe('(Component) SkipButton', () => {

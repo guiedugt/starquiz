@@ -1,11 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
 import { OpeningTitle } from '../OpeningTitle'
 
 const props = {
-  history: { push: () => { } },
-  isLogged: false
+  children: 'mock',
+  duration: 1000
 }
 
 describe('(Component) OpeningTitle', () => {

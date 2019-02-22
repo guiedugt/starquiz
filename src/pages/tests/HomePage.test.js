@@ -1,15 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { PublicPage } from '../PublicPage'
+import { HomePage } from '../HomePage'
 
 const props = {
   history: { push: () => { } },
   isLogged: false
 }
 
-describe('(Component) PublicPage', () => {
+describe('(Component) HomePage', () => {
   it('renders without crash', () => {
-    const wrapper = shallow(<PublicPage {...props} />)
+    const wrapper = shallow(<HomePage {...props} />)
     expect(wrapper).toHaveLength(1)
   })
 })
