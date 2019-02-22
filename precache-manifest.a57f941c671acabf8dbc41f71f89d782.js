@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "cbe82f649bb1bd0d0646",
-    "url": "/starquiz/static/css/main.eeaa1f3b.chunk.css"
+    "revision": "7804374e7ba49b8bebd0",
+    "url": "/starquiz/static/css/main.d07e2e7b.chunk.css"
   },
   {
-    "revision": "cbe82f649bb1bd0d0646",
-    "url": "/starquiz/static/js/main.cbe82f64.chunk.js"
+    "revision": "7804374e7ba49b8bebd0",
+    "url": "/starquiz/static/js/main.7804374e.chunk.js"
   },
   {
     "revision": "1d01c722e6839e0b48ee",
     "url": "/starquiz/static/js/runtime~main.1d01c722.js"
   },
   {
-    "revision": "d5c1bda0326aacf19d25",
-    "url": "/starquiz/static/js/2.d5c1bda0.chunk.js"
+    "revision": "fe7cf9faccb3d0feef1c",
+    "url": "/starquiz/static/js/2.fe7cf9fa.chunk.js"
   },
   {
     "revision": "3a4ae4f7a1bcdbbada96aa0ec02aa319",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/starquiz/static/media/starjedi.cc3019aa.ttf"
   },
   {
-    "revision": "de308f3c97991e3501c132a2479e8e61",
+    "revision": "4418164e4a62853dae406c1f1edd388a",
     "url": "/starquiz/index.html"
   }
 ];

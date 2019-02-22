@@ -1,15 +1,15 @@
 {
-  "main.css": "/starquiz/static/css/main.eeaa1f3b.chunk.css",
-  "main.js": "/starquiz/static/js/main.cbe82f64.chunk.js",
-  "main.js.map": "/starquiz/static/js/main.cbe82f64.chunk.js.map",
+  "main.css": "/starquiz/static/css/main.d07e2e7b.chunk.css",
+  "main.js": "/starquiz/static/js/main.7804374e.chunk.js",
+  "main.js.map": "/starquiz/static/js/main.7804374e.chunk.js.map",
   "runtime~main.js": "/starquiz/static/js/runtime~main.1d01c722.js",
   "runtime~main.js.map": "/starquiz/static/js/runtime~main.1d01c722.js.map",
-  "static/js/2.d5c1bda0.chunk.js": "/starquiz/static/js/2.d5c1bda0.chunk.js",
-  "static/js/2.d5c1bda0.chunk.js.map": "/starquiz/static/js/2.d5c1bda0.chunk.js.map",
+  "static/js/2.fe7cf9fa.chunk.js": "/starquiz/static/js/2.fe7cf9fa.chunk.js",
+  "static/js/2.fe7cf9fa.chunk.js.map": "/starquiz/static/js/2.fe7cf9fa.chunk.js.map",
   "index.html": "/starquiz/index.html",
-  "precache-manifest.68b5f92f73947771138cfea5c8247b04.js": "/starquiz/precache-manifest.68b5f92f73947771138cfea5c8247b04.js",
+  "precache-manifest.a57f941c671acabf8dbc41f71f89d782.js": "/starquiz/precache-manifest.a57f941c671acabf8dbc41f71f89d782.js",
   "service-worker.js": "/starquiz/service-worker.js",
-  "static/css/main.eeaa1f3b.chunk.css.map": "/starquiz/static/css/main.eeaa1f3b.chunk.css.map",
+  "static/css/main.d07e2e7b.chunk.css.map": "/starquiz/static/css/main.d07e2e7b.chunk.css.map",
   "static/media/App.css": "/starquiz/static/media/starjedi.cc3019aa.ttf",
   "static/media/star-wars-intro.mp3": "/starquiz/static/media/star-wars-intro.3a4ae4f7.mp3"
 }
