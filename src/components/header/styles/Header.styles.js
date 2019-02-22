@@ -8,7 +8,6 @@ const headerStyle = css`
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  padding: 0 1rem;
   margin: 0;
   margin-bottom: 1rem;
   position: sticky;
