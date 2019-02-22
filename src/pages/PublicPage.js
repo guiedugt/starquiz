@@ -8,8 +8,6 @@ import history from '../routes/history'
 export class PublicPage extends Component {
   componentDidMount () {
     setTimeout(() => history.push('/home'), 30000)
-    const audio = new Audio(starWarsIntro)
-    audio.play()
   }
 
   render () {
@@ -24,6 +22,7 @@ export class PublicPage extends Component {
           <p>You can only try to guess a character's name once.</p>
           <p>Are you prepared? Then use the force!</p>
         </StarWarsCrawl>
+        <audio src={starWarsIntro} autoPlay />
         <OpeningTitle>Star Quiz</OpeningTitle>
         <SkipButton />
       </>
