@@ -7,6 +7,7 @@
     "@babel/core": "7.2.2",
     "@emotion/core": "^10.0.7",
     "@svgr/webpack": "4.1.0",
+    "antd": "^3.13.5",
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -21,6 +22,7 @@
     "dotenv-expand": "4.2.0",
     "eslint": "5.12.0",
     "eslint-config-react-app": "^3.0.7",
+    "eslint-config-standard-react": "^7.0.2",
     "eslint-loader": "2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.14.0",
@@ -35,6 +37,8 @@
     "jest-pnp-resolver": "1.0.2",
     "jest-resolve": "23.6.0",
     "jest-watch-typeahead": "^0.2.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "0.5.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.2.1",
@@ -71,7 +75,20 @@
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "root": true,
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "extends": [
+      "react-app",
+      "standard",
+      "plugin:import/errors"
+    ]
   },
   "standard": {
     "env": [
@@ -139,9 +156,33 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "emotion",
+      "react-hot-loader/babel",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "lib",
+          "style": true
+        },
+        "antd"
+      ],
+      [
+        "import",
+        {
+          "libraryName": "lodash",
+          "libraryDirectory": "",
+          "camel2DashComponentName": false
+        },
+        "lodash"
+      ]
     ]
   },
   "devDependencies": {
+    "babel-plugin-emotion": "^10.0.7",
+    "babel-plugin-import": "^1.11.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "gh-pages": "^2.0.1",
