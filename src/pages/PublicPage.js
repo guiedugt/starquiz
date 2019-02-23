@@ -19,7 +19,7 @@ export class PublicPage extends Component {
     return (
       <>
         <StarWarsCrawl title='Star Quiz' >
-          {RULES.map(rule => <p>{rule}</p>)}
+          {RULES.map(rule => <p key={rule}>{rule}</p>)}
         </StarWarsCrawl>
         <iframe src={starWarsIntro} title='autoplay' allow='autoplay' style={{ display: 'none' }} />
         <OpeningTitle>Star Quiz</OpeningTitle>

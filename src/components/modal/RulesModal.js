@@ -16,7 +16,7 @@ export const RulesModal = ({
       maskClosable={false}
       footer={<SubmitButton onClick={onOk} />}
     >
-      {RULES.map(rule => <p>{rule}</p>)}
+      {RULES.map(rule => <p key={rule}>{rule}</p>)}
     </StyledModal>
   )
 }
