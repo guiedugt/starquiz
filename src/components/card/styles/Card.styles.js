@@ -33,7 +33,7 @@ const imageStyle = css`
     width: 15rem;
     height: 12rem;
     object-fit: cover;
-    object-position: 0 5%;
+    object-position: 50% 5%;
     :hover { transform: scale(1.1); }
   }
 `

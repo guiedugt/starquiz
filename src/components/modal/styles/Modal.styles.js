@@ -14,13 +14,15 @@ const groupStyle = css`
 `
 
 const imageStyle = css`
+  height: 15rem;
   width: 100%;
   text-align: center;
   img {
-    height: 15rem;
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
     width: auto;
     object-fit: cover;
-    object-position: 0 5%;
   }
 `
 
