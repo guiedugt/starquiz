@@ -37,4 +37,16 @@ describe('game actions', () => {
       expect(actual).toEqual(expected)
     })
   })
+
+  describe('setScore', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.SET_SCORE
+      }
+
+      const actual = actions.setScore()
+
+      expect(actual).toEqual(expected)
+    })
+  })
 })

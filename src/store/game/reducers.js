@@ -2,11 +2,14 @@ import createReducer from '../createReducer'
 import {
   START_GAME,
   STOP_GAME,
-  SET_TIME
+  SET_TIME,
+  SET_SCORE
 } from './constants'
 
 const initialState = {
-  isPlaying: false
+  isPlaying: false,
+  time: 200,
+  score: 0
 }
 
 export default createReducer(initialState, {
@@ -21,5 +24,9 @@ export default createReducer(initialState, {
   [SET_TIME]: (state, action) => ({
     ...state,
     time: action.payload
+  }),
+  [SET_SCORE]: (state, action) => ({
+    ...state,
+    score: action.payload
   })
 })
