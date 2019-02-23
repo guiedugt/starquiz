@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Popover, message } from 'antd'
+import { Spin, Button, Popover, message } from 'antd'
+import { get } from 'lodash'
 import CharacterModal from '../modal/CharacterModal'
 import SearchInput from '../input/SearchInput'
 import { StyledCharacterCard, Image } from './styles/Card.styles'
@@ -40,42 +41,45 @@ export class CharacterCard extends Component {
     const { character } = this.props
 
     return (
-      <StyledCharacterCard
-        title={this.renderImage()}
-        bordered={false}
-      >
-        <Popover
-          trigger='click'
-          content={this.renderInput('popoverInput')}
-          onVisibleChange={visible => visible && this.focusInput(this.popoverInput)}
+      <Spin spinning={!get(character, 'image')}>
+        <StyledCharacterCard
+          title={this.renderImage()}
+          bordered={false}
         >
+          <Popover
+            trigger='click'
+            content={this.renderInput('popoverInput')}
+            onVisibleChange={visible => visible && this.focusInput(this.popoverInput)}
+          >
+            <Button
+              type='primary'
+              icon='question'
+            />
+          </Popover>
           <Button
             type='primary'
-            icon='question'
+            icon='ellipsis'
+            onClick={this.toggleModal}
           />
-        </Popover>
-        <Button
-          type='primary'
-          icon='ellipsis'
-          onClick={this.toggleModal}
-        />
-        <CharacterModal
-          visible={isModalVisible}
-          toggle={this.toggleModal}
-          character={character}
-          button={this.renderInput('modalInput')}
-        />
-      </StyledCharacterCard>
+          <CharacterModal
+            visible={isModalVisible}
+            toggle={this.toggleModal}
+            character={character}
+            button={this.renderInput('modalInput')}
+          />
+        </StyledCharacterCard>
+      </Spin>
     )
   }
 
   renderImage = () => {
-    const { character } = this.props
-    return character.image &&
+    const url = get(this, 'props.character.image.url')
+    return (
       <Image
-        src={character.image.url}
+        src={url}
         onClick={this.toggleModal}
       />
+    )
   }
 
   renderInput = ref => {

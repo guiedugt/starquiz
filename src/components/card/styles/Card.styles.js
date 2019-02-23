@@ -28,9 +28,11 @@ const characterCardStyle = css`
 
 const imageStyle = css`
   cursor: pointer;
+  width: 15rem;
+  height: 12rem;
   img {
     transition: transform .4s ease-out;
-    width: 15rem;
+    width: 100%;
     height: 12rem;
     object-fit: cover;
     object-position: 50% 5%;
@@ -44,6 +46,6 @@ export const StyledCharacterCard = props => (
 
 export const Image = props => (
   <div css={imageStyle} >
-    <img src={props.src} alt='character' {...props} />
+    {props.src && <img src={props.src} alt='character' {...props} />}
   </div>
 )
