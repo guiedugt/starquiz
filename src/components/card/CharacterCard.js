@@ -15,8 +15,8 @@ export class CharacterCard extends Component {
   }
 
   state = {
-    input: '',
-    isModalVisible: false
+    isModalVisible: false,
+    error: ''
   }
 
   render () {
@@ -25,7 +25,7 @@ export class CharacterCard extends Component {
 
     return (
       <StyledCharacterCard
-        title={character.image && <Image src={character.image} />}
+        title={this.renderImage()}
         bordered={false}
       >
         <Popover
@@ -52,13 +52,29 @@ export class CharacterCard extends Component {
     )
   }
 
+  renderImage = () => {
+    const { character } = this.props
+    return character.image &&
+      <Image
+        src={character.image.url}
+        onClick={this.toggleModal}
+      />
+  }
+
   renderInput = () => {
     return (
       <SearchInput
-        onSearch={() => window.alert('search')}
-        error=''
+        onSearch={this.handleSearch}
+        error={this.state.error}
       />
     )
+  }
+
+  handleSearch = input => {
+    const formatted = input => input.trim().toLowerCase().replace(/[^a-z0-9]/gi, '')
+    formatted(input).includes(formatted(this.props.character.name))
+      ? window.alert('success!')
+      : this.setState({ error: `Nope. It's not ${input}` })
   }
 
   toggleModal = () => {

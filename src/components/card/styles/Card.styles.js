@@ -27,11 +27,13 @@ const characterCardStyle = css`
 `
 
 const imageStyle = css`
+  cursor: pointer;
   img {
     transition: transform .4s ease-out;
     width: 15rem;
     height: 12rem;
     object-fit: cover;
+    object-position: 0 5%;
     :hover { transform: scale(1.1); }
   }
 `
