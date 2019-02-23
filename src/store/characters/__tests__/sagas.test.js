@@ -25,7 +25,7 @@ describe('characters sagas', () => {
   describe('fetchCharacters saga function', () => {
     it('returns correct success action on success operation', async () => {
       const dispatchMock = jest.fn()
-      const successResultMock = { mock: 'mock' }
+      const successResultMock = ['mock']
 
       jest
         .spyOn(services, 'fetchCharacters')
@@ -33,7 +33,11 @@ describe('characters sagas', () => {
 
       await runSaga({
         dispatch: dispatchMock,
-        getState: () => ({})
+        getState: () => ({
+          characters: {
+            items: []
+          }
+        })
       }, fetchCharactersWithArgs).done
 
       const argOfFirstCall = getArgFromCall(dispatchMock)
@@ -69,7 +73,11 @@ describe('characters sagas', () => {
 
       await runSaga({
         dispatch: dispatchMock,
-        getState: () => ({})
+        getState: () => ({
+          characters: {
+            items: []
+          }
+        })
       }, fetchCharacterWithArgs).done
 
       const argOfFirstCall = getArgFromCall(dispatchMock)

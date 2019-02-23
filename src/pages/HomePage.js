@@ -23,7 +23,7 @@ export class HomePage extends Component {
     return (
       <StyledHomePage blur={0}>
         <Header time={120} score={300} />
-        <RulesModal visible={false} />
+        <RulesModal visible={false} onOk={() => window.alert('mock ok!')} />
         <CharacterList
           scrollParentRef={this.page}
           data={characters}

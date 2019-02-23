@@ -4,7 +4,10 @@ import { CharacterModal } from '../CharacterModal'
 
 const props = {
   visible: true,
-  toggle: jest.fn()
+  toggle: jest.fn(),
+  url: 'https:mock.com',
+  character: {},
+  fetchCharacter: jest.fn()
 }
 
 describe('(Component) CharacterModal', () => {
