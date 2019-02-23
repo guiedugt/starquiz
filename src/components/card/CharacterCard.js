@@ -47,7 +47,7 @@ export class CharacterCard extends Component {
           bordered={false}
         >
           <Popover
-            trigger='click'
+            trigger='hover'
             content={this.renderInput('popoverInput')}
             onVisibleChange={visible => visible && this.focusInput(this.popoverInput)}
           >
@@ -64,7 +64,7 @@ export class CharacterCard extends Component {
           <CharacterModal
             visible={isModalVisible}
             toggle={this.toggleModal}
-            character={character}
+            url={get(character, 'url')}
             button={this.renderInput('modalInput')}
           />
         </StyledCharacterCard>
