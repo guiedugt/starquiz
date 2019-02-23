@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Header from '../components/header/Header'
-import RulesModal from '../components/modal/RulesModal'
 import CharacterList from '../components/list/CharacterList'
+import RulesModal from '../components/modal/RulesModal'
+import ScoreModal from '../components/modal/ScoreModal'
 import { StyledHomePage } from './styles/Page.styles'
 import { startGame } from '../store/game/actions'
 import { fetchCharacters } from '../store/characters/actions'
@@ -33,15 +34,19 @@ export class HomePage extends Component {
           time={time}
           score={score}
         />
-        <RulesModal
-          visible={!gameStarted}
-          onOk={startGame}
-        />
         <CharacterList
           scrollParentRef={this.page}
           data={characters}
           loading={loading}
           fetch={fetchCharacters}
+        />
+        <RulesModal
+          visible={!gameStarted}
+          onOk={startGame}
+        />
+        <ScoreModal
+          visible={gameFinished}
+          score={score}
         />
       </StyledHomePage>
     )
