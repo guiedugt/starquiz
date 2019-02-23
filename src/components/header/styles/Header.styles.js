@@ -4,12 +4,13 @@ import { jsx, css } from '@emotion/core'
 const headerStyle = css`
   z-index: 5;
   width: 100%;
+  max-width: 75rem;
   background: transparent;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 1rem;
   position: absolute;
   top: 0;
