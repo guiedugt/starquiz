@@ -4,7 +4,8 @@ import { PublicPage } from '../PublicPage'
 
 const props = {
   history: { push: () => { } },
-  isLogged: false
+  isLogged: false,
+  fetchCharacters: jest.fn()
 }
 
 describe('(Component) PublicPage', () => {
