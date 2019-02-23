@@ -1,6 +1,7 @@
 import {
   START_GAME,
-  STOP_GAME
+  STOP_GAME,
+  SET_TIME
 } from './constants'
 
 export const startGame = () => ({
@@ -9,4 +10,9 @@ export const startGame = () => ({
 
 export const stopGame = () => ({
   type: STOP_GAME
+})
+
+export const setTime = time => ({
+  type: SET_TIME,
+  payload: time
 })

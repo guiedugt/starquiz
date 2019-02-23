@@ -25,4 +25,16 @@ describe('game actions', () => {
       expect(actual).toEqual(expected)
     })
   })
+
+  describe('setTime', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.SET_TIME
+      }
+
+      const actual = actions.setTime()
+
+      expect(actual).toEqual(expected)
+    })
+  })
 })
