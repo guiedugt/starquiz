@@ -11,7 +11,7 @@ import { fetchCharacters } from '../store/characters/actions'
 
 export class PublicPage extends Component {
   componentDidMount () {
-    this.props.fetchCharacters()
+    this.props.fetchCharacters(1)
     setTimeout(() => history.push('/home'), 27000)
   }
 

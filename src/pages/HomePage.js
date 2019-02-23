@@ -10,7 +10,8 @@ import { fetchCharacters } from '../store/characters/actions'
 export class HomePage extends Component {
   componentDidMount () {
     const { characters, fetchCharacters } = this.props
-    characters.length === 0 && fetchCharacters()
+    const page = (characters.length / 10) + 1
+    fetchCharacters(page)
   }
 
   render () {

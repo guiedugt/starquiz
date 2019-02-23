@@ -19,7 +19,6 @@ instance.defaults.params = {
   key: GOOGLE_API_KEY,
   cx: GOOGLE_CX_ID,
   searchType: 'image',
-  imgSize: 'medium',
   start: 1,
   num: 5
 }

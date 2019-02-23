@@ -13,7 +13,7 @@ export class CharacterModal extends Component {
     toggle: PropTypes.func.isRequired,
     button: PropTypes.node,
     url: PropTypes.string.isRequired,
-    character: PropTypes.object.isRequired,
+    character: PropTypes.object,
     fetchCharacter: PropTypes.func.isRequired
   }
 
