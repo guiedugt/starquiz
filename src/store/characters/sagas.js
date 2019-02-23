@@ -27,8 +27,12 @@ export function * fetchCharacters ({ payload }) {
 
 export function * fetchCharacter ({ payload }) {
   try {
-    const character = yield call(services.fetchCharacter, payload)
+    const characters = yield select(state => state.characters.items)
+    let character = characters.find(character => character.url === payload)
+    if (!character) character = yield call(services.fetchCharacter, payload)
     yield put(actions.fetchCharacterSuccess(character))
+    const characterWithRelationships = yield call(services.populateCharacterRelationships, character)
+    yield put(actions.fetchCharacterSuccess({ ...characterWithRelationships }))
   } catch (error) {
     const errorMessage = 'Failed to fetch character'
     message.error(errorMessage)

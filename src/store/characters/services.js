@@ -1,6 +1,6 @@
 import http from '../../utils/http'
 import cse, { mapImages, getRandomImage } from '../../utils/cse'
-import { mapPropsToData } from '../../utils/httpHelpers'
+import { mapPropsToData, getData } from '../../utils/httpHelpers'
 
 const charactersEndpoint = '/people'
 
@@ -11,10 +11,30 @@ export const fetchCharacters = page => {
     .then(mapPropsToData('count'))
 }
 
-export const fetchCharacter = id => {
+export const fetchCharacter = url => {
   return http
-    .get(`${charactersEndpoint}/${id}`)
+    .get(url)
     .then(res => res.data)
+}
+
+export const populateCharacterRelationships = character => {
+  const relationships = ['species', 'homeworld', 'films', 'starships', 'vehicles']
+  return Promise.all(
+    relationships.map(key => {
+      const reqs = Array.isArray(character[key])
+        ? Promise.all(character[key].map(getData))
+        : getData(character[key])
+
+      return reqs.then(rel => {
+        rel.relationship = key
+        return rel
+      })
+    })
+  )
+    .then(rels => {
+      rels.forEach(rel => { character[rel.relationship] = rel })
+      return character
+    })
 }
 
 export const populateCharacterImage = character => {

@@ -22,9 +22,9 @@ export const fetchCharactersFailure = error => ({
   payload: error
 })
 
-export const fetchCharacter = id => ({
+export const fetchCharacter = url => ({
   type: FETCH_CHARACTER,
-  payload: id
+  payload: url
 })
 
 export const fetchCharacterSuccess = character => ({
