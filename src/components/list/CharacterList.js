@@ -16,7 +16,7 @@ export const CharacterList = ({
     <StyledCharacterList>
       <InfiniteScroll
         pageStart={1}
-        loadMore={!loading && fetch}
+        loadMore={page => !loading && fetch(page)}
         hasMore={hasMore}
         useWindow={false}
       >
