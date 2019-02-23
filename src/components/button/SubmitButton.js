@@ -21,7 +21,7 @@ SubmitButton.propTypes = {
 }
 
 SubmitButton.defaultProps = {
-  children: 'Start'
+  children: ''
 }
 
 export default SubmitButton
