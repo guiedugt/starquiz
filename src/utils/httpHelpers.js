@@ -1,3 +1,5 @@
+import http from './http'
+
 export const mapPropsToData = (...props) => res => {
   const { results } = res.data
 
@@ -8,3 +10,5 @@ export const mapPropsToData = (...props) => res => {
 
   return results
 }
+
+export const getData = url => http.get(url).then(res => res.data)
