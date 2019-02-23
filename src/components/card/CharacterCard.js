@@ -1,30 +1,35 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Popover, Input } from 'antd'
+import { Button, Popover } from 'antd'
+import CharacterModal from '../modal/CharacterModal'
+import SearchInput from '../input/SearchInput'
 import { StyledCharacterCard, Image } from './styles/Card.styles'
 
 export class CharacterCard extends Component {
   static propTypes = {
-    image: PropTypes.string.isRequired
+    character: PropTypes.object.isRequired
+  }
+
+  static defaultProps = {
+    character: {}
   }
 
   state = {
-    input: ''
+    input: '',
+    isModalVisible: false
   }
 
   render () {
-    const {
-      onDetails
-    } = this.props
+    const { isModalVisible } = this.state
+    const { character } = this.props
 
     return (
       <StyledCharacterCard
-        title={this.renderImage()}
+        title={character.image && <Image src={character.image} />}
         bordered={false}
       >
         <Popover
-          trigger='click'
-          placement='topLeft'
+          trigger='hover'
           content={this.renderInput()}
         >
           <Button
@@ -35,26 +40,29 @@ export class CharacterCard extends Component {
         <Button
           type='primary'
           icon='ellipsis'
-          onClick={onDetails}
+          onClick={this.toggleModal}
+        />
+        <CharacterModal
+          visible={isModalVisible}
+          toggle={this.toggleModal}
+          character={character}
+          button={this.renderInput()}
         />
       </StyledCharacterCard>
     )
   }
 
-  renderImage = () => {
-    const { image } = this.props
+  renderInput = () => {
     return (
-      <Image src={image} />
+      <SearchInput
+        onSearch={() => window.alert('search')}
+        error=''
+      />
     )
   }
 
-  renderInput = () => {
-    return (
-      <Input.Search
-        placeholder='My name is ...'
-        onChange={input => this.setState({ input })}
-      />
-    )
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible })
   }
 }
 
