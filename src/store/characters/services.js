@@ -9,7 +9,7 @@ export const fetchCharacters = (query = {}) => {
   }
   return http
     .get(charactersEndpoint, { params })
-    .then(res => Promise.all(res.data.results.map(populateCharacterImage)))
+    .then(res => res.data.results)
 }
 
 export const fetchCharacter = id => {

@@ -9,6 +9,10 @@ export function * fetchCharacters ({ payload }) {
   try {
     const characters = yield call(services.fetchCharacters, payload)
     yield put(actions.fetchCharactersSuccess(characters))
+    for (let i = 0; i < characters.length; i++) {
+      characters[i] = yield call(services.populateCharacterImage, characters[i])
+      yield put(actions.fetchCharactersSuccess([...characters]))
+    }
   } catch (error) {
     const errorMessage = 'Failed to fetch characters'
     message.error(errorMessage)

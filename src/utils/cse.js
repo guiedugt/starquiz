@@ -16,12 +16,12 @@ const instance = axios.create({
 })
 
 instance.defaults.params = {
+  key: GOOGLE_API_KEY,
   cx: GOOGLE_CX_ID,
   searchType: 'image',
   imgSize: 'medium',
   start: 1,
-  num: 1,
-  key: GOOGLE_API_KEY
+  num: 1
 }
 
 export const mapImages = res => {
