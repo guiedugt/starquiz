@@ -22,7 +22,9 @@ const containerStyle = css`
 `
 
 export const StyledHomePage = props => (
-  <main css={homePageStyle(props.blur)} {...props} />
+  <main css={homePageStyle(props.blur)}>
+    {props.children}
+  </main>
 )
 
 export const Container = props => (

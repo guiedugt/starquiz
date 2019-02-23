@@ -5,6 +5,7 @@ import Header from '../components/header/Header'
 import RulesModal from '../components/modal/RulesModal'
 import CharacterList from '../components/list/CharacterList'
 import { StyledHomePage } from './styles/Page.styles'
+import { startGame } from '../store/game/actions'
 import { fetchCharacters } from '../store/characters/actions'
 
 export class HomePage extends Component {
@@ -16,15 +17,26 @@ export class HomePage extends Component {
 
   render () {
     const {
-      fetchCharacters,
+      gameStarted,
+      gameFinished,
+      time,
+      score,
       characters,
-      loading
+      loading,
+      startGame,
+      fetchCharacters
     } = this.props
 
     return (
-      <StyledHomePage blur={0}>
-        <Header time={120} score={300} />
-        <RulesModal visible={false} onOk={() => window.alert('mock ok!')} />
+      <StyledHomePage blur={!gameStarted || gameFinished}>
+        <Header
+          time={time}
+          score={score}
+        />
+        <RulesModal
+          visible={!gameStarted}
+          onOk={startGame}
+        />
         <CharacterList
           scrollParentRef={this.page}
           data={characters}
@@ -36,13 +48,18 @@ export class HomePage extends Component {
   }
 }
 
-const mapStateToProps = ({ characters }) => ({
+const mapStateToProps = ({ game, characters }) => ({
+  gameStarted: game.gameStarted,
+  gameFinished: game.gameFinished,
+  time: game.time,
+  score: game.score,
   characters: characters.items,
   loading: characters.loading
 })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
+    startGame,
     fetchCharacters
   }, dispatch)
 

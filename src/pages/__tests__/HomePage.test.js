@@ -5,6 +5,7 @@ import { HomePage } from '../HomePage'
 const props = {
   history: { push: () => { } },
   isLogged: false,
+  startGame: jest.fn(),
   fetchCharacters: jest.fn(),
   characters: [],
   loading: false
