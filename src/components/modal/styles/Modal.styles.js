@@ -15,9 +15,12 @@ const groupStyle = css`
 
 const imageStyle = css`
   width: 100%;
+  text-align: center;
   img {
-    width: 100%;
+    height: 15rem;
+    width: auto;
     object-fit: cover;
+    object-position: 0 5%;
   }
 `
 

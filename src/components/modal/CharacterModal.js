@@ -16,7 +16,7 @@ export const CharacterModal = ({
       footer={button}
     >
       <Group>
-        {character.image && <Image src={character.image} />}
+        {character.image && <Image src={character.image.url} />}
       </Group>
       <Group>
         <Item label='label'>item</Item>
