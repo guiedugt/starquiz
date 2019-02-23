@@ -47,7 +47,7 @@ export const Group = props => (
 
 export const Image = props => (
   <div css={imageStyle} >
-    <img src={props.src} alt='character' {...props} />
+    {props.src && <img src={props.src} alt='character' {...props} />}
   </div>
 )
 
