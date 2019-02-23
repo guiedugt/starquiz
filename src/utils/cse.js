@@ -21,7 +21,7 @@ instance.defaults.params = {
   searchType: 'image',
   imgSize: 'medium',
   start: 1,
-  num: 1
+  num: 5
 }
 
 export const mapImages = res => {
