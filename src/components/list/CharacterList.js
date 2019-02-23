@@ -12,7 +12,7 @@ export const CharacterList = ({ data }) => {
       grid={{ gutter: 16, xs: 1, sm: 2, md: 3, lg: 4 }}
       renderItem={character => (
         <List.Item>
-          <CharacterCard {...character} />
+          <CharacterCard character={character} />
         </List.Item>
       )}
     />

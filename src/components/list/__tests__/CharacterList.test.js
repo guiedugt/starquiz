@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { CharacterList } from '../CharacterList'
 
 const props = {
-  image: 'mock'
+  character: {}
 }
 
 describe('(Component) CharacterList', () => {
