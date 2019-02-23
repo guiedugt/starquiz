@@ -91,14 +91,17 @@
     ]
   },
   "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "react"
+    ],
     "env": [
       "jest",
       "es6",
       "browser"
     ],
     "ignore": [
-      "build/*",
-      "docs/*"
+      "build/*"
     ]
   },
   "browserslist": [

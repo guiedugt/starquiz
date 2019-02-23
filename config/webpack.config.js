@@ -300,8 +300,8 @@ module.exports = function (webpackEnv) {
               modifyVars: {
                 'primary-color': '#feda4a',
                 'link-color': '#feda4a',
-                'text-color': 'rgba(255, 255, 255, .90)',
-                'btn-primary-color': '#333'
+                'text-color': 'rgb(125, 125, 125)',
+                'btn-primary-color': 'rgb(125, 125, 125)'
               },
               javascriptEnabled: true
             }

@@ -13,8 +13,17 @@ const skipButtonStyle = css`
   right: 1rem;
 `
 
+const submitButtonStyle = css`
+  ${buttonStyle};
+  width: 100%;
+`
+
 export const StyledSkipButton = props => (
   <Link to={props.to}>
     <Button css={skipButtonStyle} {...props} />
   </Link>
+)
+
+export const StyledSubmitButton = props => (
+  <Button css={submitButtonStyle} {...props} />
 )
