@@ -7,19 +7,20 @@ import {
 } from './constants'
 
 const initialState = {
-  isPlaying: false,
-  time: 200,
+  gameStarted: false,
+  gameFinished: false,
+  time: 120,
   score: 0
 }
 
 export default createReducer(initialState, {
   [START_GAME]: (state, action) => ({
     ...state,
-    isPlaying: true
+    gameStarted: true
   }),
   [STOP_GAME]: (state, action) => ({
     ...state,
-    isPlaying: false
+    gameFinished: true
   }),
   [SET_TIME]: (state, action) => ({
     ...state,

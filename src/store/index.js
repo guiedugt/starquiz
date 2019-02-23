@@ -6,6 +6,7 @@ import gameReducers from './game/reducers'
 import charactersReducers from './characters/reducers'
 
 // Sagas
+import gameSagas from './game/sagas'
 import charactersSagas from './characters/sagas'
 
 // Configure Reducers
@@ -17,6 +18,7 @@ export const rootReducer = combineReducers({
 // Configure Sagas
 export function * rootSaga () {
   yield all([
+    gameSagas(),
     charactersSagas()
   ])
 }
