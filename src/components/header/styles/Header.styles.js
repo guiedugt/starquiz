@@ -2,19 +2,21 @@
 import { jsx, css } from '@emotion/core'
 
 const headerStyle = css`
-  z-index: 1;
+  z-index: 5;
   width: 100%;
+  max-width: 75rem;
   background: transparent;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 1rem;
-  position: sticky;
+  position: absolute;
   top: 0;
-  @media only screen and (max-width: 375px) { top: -8rem; }
-  `
+  left: 0;
+  right: 0;
+`
 
 const groupStyle = css`
   flex: 1;
@@ -31,6 +33,7 @@ const titleStyle = css`
   text-align: center;
   text-transform: lowercase;
   font-family: 'Starjedi', sans-serif;
+  @media only screen and (max-width: 768px) { font-size: 2.25rem; }
 `
 
 const scoreStyle = css`
@@ -48,7 +51,6 @@ const scoreStyle = css`
     0 0 2.5rem #75c33c,
     0 0 3.0rem #75c33c,
     0 0 3.5rem #75c33c;
-
   svg {
     font-size: 2.5rem;
     fill: #fff;
@@ -56,7 +58,9 @@ const scoreStyle = css`
       drop-shadow(0 0 0.5rem #fff)
       drop-shadow(0 0 1.0rem #75c33c)
       drop-shadow(0 0 1.5rem #75c33c);
+    @media only screen and (max-width: 768px) { font-size: 2rem; }
   }
+  @media only screen and (max-width: 768px) { font-size: 2rem; }
 `
 
 const timeStyle = css`
@@ -81,7 +85,9 @@ const timeStyle = css`
       drop-shadow(0 0 0.5rem #f00)
       drop-shadow(0 0 1.0rem #900)
       drop-shadow(0 0 1.5rem #900);
+      @media only screen and (max-width: 768px) { font-size: 2rem; }
   }
+  @media only screen and (max-width: 768px) { font-size: 2rem; }
 `
 
 export const StyledHeader = props => (

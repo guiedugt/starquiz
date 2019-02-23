@@ -14,9 +14,14 @@ const groupStyle = css`
 `
 
 const imageStyle = css`
+  height: 15rem;
   width: 100%;
+  text-align: center;
   img {
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    width: auto;
     object-fit: cover;
   }
 `
@@ -42,7 +47,7 @@ export const Group = props => (
 
 export const Image = props => (
   <div css={imageStyle} >
-    <img src={props.src} alt='character' {...props} />
+    {props.src && <img src={props.src} alt='character' {...props} />}
   </div>
 )
 

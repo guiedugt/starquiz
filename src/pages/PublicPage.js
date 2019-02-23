@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import StarWarsCrawl from '../components/crawl/StarWarsCrawl'
 import OpeningTitle from '../components/title/OpeningTitle'
 import SkipButton from '../components/button/SkipButton'
 import starWarsIntro from '../assets/star-wars-intro.mp3'
 import history from '../routes/history'
+import { RULES } from '../utils/constants'
+import { fetchCharacters } from '../store/characters/actions'
 
 export class PublicPage extends Component {
   componentDidMount () {
+    this.props.fetchCharacters()
     setTimeout(() => history.push('/home'), 27000)
   }
 
@@ -14,13 +19,7 @@ export class PublicPage extends Component {
     return (
       <>
         <StarWarsCrawl title='Star Quiz' >
-          <p>Can you name all the Star Wars characters?</p>
-          <p>You will have two minutes to name as many characters as you can.</p>
-          <p>10 points if you can name the character without asking for aditional information.</p>
-          <p>5 points if you name the character with the given information.</p>
-          <p>Wrong answers won't affect your score.</p>
-          <p>You can only try to guess a character's name once.</p>
-          <p>Are you prepared? Then use the force!</p>
+          {RULES.map(rule => <p key={rule}>{rule}</p>)}
         </StarWarsCrawl>
         <iframe src={starWarsIntro} title='autoplay' allow='autoplay' style={{ display: 'none' }} />
         <OpeningTitle>Star Quiz</OpeningTitle>
@@ -30,4 +29,9 @@ export class PublicPage extends Component {
   }
 }
 
-export default PublicPage
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({
+    fetchCharacters
+  }, dispatch)
+
+export default connect(null, mapDispatchToProps)(PublicPage)

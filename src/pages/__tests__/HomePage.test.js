@@ -4,7 +4,8 @@ import { HomePage } from '../HomePage'
 
 const props = {
   history: { push: () => { } },
-  isLogged: false
+  isLogged: false,
+  fetchCharacters: jest.fn()
 }
 
 describe('(Component) HomePage', () => {

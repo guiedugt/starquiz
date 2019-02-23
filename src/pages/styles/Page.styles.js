@@ -7,7 +7,6 @@ const pageStyle = css`
   flex: 1;
   width: 100%;
   max-width: 75rem;
-  padding: 0.75rem;
   margin: 0 auto;
 `
 
@@ -23,9 +22,9 @@ const containerStyle = css`
 `
 
 export const StyledHomePage = props => (
-  <section css={homePageStyle(props.blur)} {...props} />
+  <main css={homePageStyle(props.blur)} {...props} />
 )
 
 export const Container = props => (
-  <div css={containerStyle} {...props} />
+  <section css={containerStyle} {...props} />
 )
