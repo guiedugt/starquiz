@@ -15,19 +15,23 @@ export class SearchInput extends Component {
 
   render () {
     const {
-      error
+      input,
+      error,
+      success
     } = this.props
 
     return (
       <StyledSearchInput>
         <Form.Item
           hasFeedback
-          help={error}
-          validateStatus={error && 'error'}
+          help={success || error}
+          validateStatus={success ? 'success' : error ? 'error' : ''}
         >
           <Input.Search
+            ref={input}
             onChange={this.handleChange}
             onSearch={this.handleSearch}
+            disabled={!!(success || error)}
             placeholder='My name is ...'
             enterButton
           />
@@ -46,4 +50,4 @@ export class SearchInput extends Component {
   }
 }
 
-export default SearchInput
+export default React.forwardRef((props, ref) => <SearchInput input={ref} {...props} />)
