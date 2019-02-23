@@ -1,4 +1,4 @@
-import { all, call, takeLatest, put } from 'redux-saga/effects'
+import { all, call, takeLatest, put, select } from 'redux-saga/effects'
 import { message } from 'antd'
 
 import * as actions from './actions'
@@ -7,9 +7,14 @@ import * as services from './services'
 
 export function * fetchCharacters ({ payload }) {
   try {
-    const characters = yield call(services.fetchCharacters, payload)
+    const newCharacters = yield call(services.fetchCharacters, payload)
+    const oldCharacters = yield select(state => state.characters.items)
+    const props = Object.keys(newCharacters).filter(key => isNaN(key))
+    const characters = [...oldCharacters, ...newCharacters]
+    props.forEach(prop => { characters[prop] = newCharacters[prop] })
     yield put(actions.fetchCharactersSuccess(characters))
     for (let i = 0; i < characters.length; i++) {
+      if (characters[i].image) continue
       characters[i] = yield call(services.populateCharacterImage, characters[i])
       yield put(actions.fetchCharactersSuccess([...characters]))
     }

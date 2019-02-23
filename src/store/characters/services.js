@@ -1,15 +1,14 @@
 import http from '../../utils/http'
 import cse, { mapImages, getRandomImage } from '../../utils/cse'
+import { mapPropsToData } from '../../utils/httpHelpers'
 
 const charactersEndpoint = '/people'
 
-export const fetchCharacters = (query = {}) => {
-  const params = {
-    page: query.page
-  }
+export const fetchCharacters = page => {
+  const params = { page }
   return http
     .get(charactersEndpoint, { params })
-    .then(res => res.data.results)
+    .then(mapPropsToData('count'))
 }
 
 export const fetchCharacter = id => {
