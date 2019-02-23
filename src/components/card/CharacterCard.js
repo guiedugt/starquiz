@@ -1,22 +1,38 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Popover } from 'antd'
+import { Button, Popover, message } from 'antd'
 import CharacterModal from '../modal/CharacterModal'
 import SearchInput from '../input/SearchInput'
 import { StyledCharacterCard, Image } from './styles/Card.styles'
 
 export class CharacterCard extends Component {
   static propTypes = {
-    character: PropTypes.object.isRequired
+    character: PropTypes.object.isRequired,
+    majorScore: PropTypes.number,
+    minorScore: PropTypes.number
   }
 
   static defaultProps = {
-    character: {}
+    character: {},
+    majorScore: 10,
+    minorScore: 5
   }
 
   state = {
     isModalVisible: false,
-    error: ''
+    score: this.props.majorScore,
+    error: '',
+    success: ''
+  }
+
+  popoverInput = React.createRef()
+  modalInput = React.createRef()
+
+  componentDidUpdate (prevProps, prevState) {
+    !prevState.isModalVisible &&
+      this.state.isModalVisible &&
+      this.focusInput(this.modalInput) &&
+      this.setState({ score: this.props.minorScore })
   }
 
   render () {
@@ -29,8 +45,9 @@ export class CharacterCard extends Component {
         bordered={false}
       >
         <Popover
-          trigger='hover'
-          content={this.renderInput()}
+          trigger='click'
+          content={this.renderInput('popoverInput')}
+          onVisibleChange={visible => visible && this.focusInput(this.popoverInput)}
         >
           <Button
             type='primary'
@@ -46,7 +63,7 @@ export class CharacterCard extends Component {
           visible={isModalVisible}
           toggle={this.toggleModal}
           character={character}
-          button={this.renderInput()}
+          button={this.renderInput('modalInput')}
         />
       </StyledCharacterCard>
     )
@@ -61,20 +78,36 @@ export class CharacterCard extends Component {
       />
   }
 
-  renderInput = () => {
+  renderInput = ref => {
     return (
       <SearchInput
+        ref={this[ref]}
         onSearch={this.handleSearch}
         error={this.state.error}
+        success={this.state.success}
       />
     )
   }
 
+  focusInput = (ref) => {
+    return setTimeout(() => ref.current.input.focus(), 400)
+  }
+
   handleSearch = input => {
+    const { name } = this.props.character
     const formatted = input => input.trim().toLowerCase().replace(/[^a-z0-9]/gi, '')
-    formatted(input).includes(formatted(this.props.character.name))
-      ? window.alert('success!')
-      : this.setState({ error: `Nope. It's not ${input}` })
+    formatted(input).includes(formatted(name))
+      ? this.setState({ success: `Right! I'm ${name}` }, this.handleSuccess)
+      : this.setState({ error: `Wrong! I'm ${name}` }, this.handleFailure)
+  }
+
+  handleSuccess = () => {
+    message.success(`+${this.state.score} points: The force is strong with you!`)
+  }
+
+  handleFailure = () => {
+    message.error('It\'s a trap!')
+    setTimeout(() => this.setState({ isModalVisible: false }), 1200)
   }
 
   toggleModal = () => {
