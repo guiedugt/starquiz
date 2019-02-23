@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Input } from 'antd'
+import { Input, Icon } from 'antd'
 import ValidatedSharedInput from './ValidatedSharedInput'
 
-export const TextInput = ({
+export const NameInput = ({
   label,
   field,
   form
@@ -15,17 +15,20 @@ export const TextInput = ({
       label={label}
     >
       <Input
-        className='text-input'
         {...field}
+        className='text-input'
+        prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
+        placeholder='Name'
+        autoComplete='name'
       />
     </ValidatedSharedInput>
   )
 }
 
-TextInput.propTypes = {
+NameInput.propTypes = {
   label: PropTypes.string.isRequired,
   field: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired
 }
 
-export default TextInput
+export default NameInput

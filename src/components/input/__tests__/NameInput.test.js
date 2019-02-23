@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { TextInput } from '../TextInput'
+import { NameInput } from '../NameInput'
 
 const props = {
   label: 'mock',
@@ -17,9 +17,9 @@ const props = {
   }
 }
 
-describe('(Component) TextInput', () => {
+describe('(Component) NameInput', () => {
   it('renders without crash', () => {
-    const wrapper = shallow(<TextInput {...props} />)
+    const wrapper = shallow(<NameInput {...props} />)
     expect(wrapper).toHaveLength(1)
   })
 })
