@@ -7,8 +7,7 @@ const cardStyle = css`
 
 const characterCardStyle = css`
   ${cardStyle};
-  margin: 0 auto;
-  width: 15rem;
+  width: 100%;
   .ant-card-head {
     padding: 0;
     &-title { padding: 0; }
@@ -28,7 +27,7 @@ const characterCardStyle = css`
 
 const imageStyle = css`
   cursor: pointer;
-  width: 15rem;
+  width: 100%;
   height: 12rem;
   img {
     transition: transform .4s ease-out;
