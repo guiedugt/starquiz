@@ -47,7 +47,7 @@ export class CharacterCard extends Component {
           bordered={false}
         >
           <Popover
-            trigger='hover'
+            trigger='click'
             content={this.renderInput('popoverInput')}
             onVisibleChange={visible => visible && this.focusInput(this.popoverInput)}
           >
