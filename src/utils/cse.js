@@ -20,7 +20,7 @@ instance.defaults.params = {
   cx: GOOGLE_CX_ID,
   searchType: 'image',
   start: 1,
-  num: 5
+  num: 3
 }
 
 export const mapImages = res => {
