@@ -1,5 +1,6 @@
 import { eventChannel, END } from 'redux-saga'
 import { call, all, takeLatest, put, select, takeEvery } from 'redux-saga/effects'
+import { message } from 'antd'
 
 import * as actions from './actions'
 import * as types from './constants'
@@ -23,13 +24,46 @@ export function * startGame ({ payload }) {
   })
 }
 
+export function * saveScore ({ payload }) {
+  try {
+    const scores = JSON.parse(localStorage.getItem('scores')) || []
+    localStorage.setItem('scores', JSON.stringify([...scores, payload]))
+    yield put(actions.saveScoreSuccess())
+  } catch (error) {
+    const errorMessage = 'Failed to save score'
+    message.error(errorMessage)
+    yield put(actions.saveScoreFailure(errorMessage))
+  }
+}
+
+export function * getScores ({ payload }) {
+  try {
+    const scores = JSON.parse(localStorage.getItem('scores')) || []
+    yield put(actions.getScoresSuccess(scores))
+  } catch (error) {
+    const errorMessage = 'Failed to get scores'
+    message.error(errorMessage)
+    yield put(actions.getScoresFailure(errorMessage))
+  }
+}
+
 // Watchers
 export function * watchStartGame () {
   yield takeLatest(types.START_GAME, startGame)
 }
 
+export function * watchSaveScore () {
+  yield takeLatest(types.SAVE_SCORE, saveScore)
+}
+
+export function * watchGetScores () {
+  yield takeLatest(types.GET_SCORES, getScores)
+}
+
 export default function * () {
   yield all([
-    watchStartGame()
+    watchStartGame(),
+    watchSaveScore(),
+    watchGetScores()
   ])
 }

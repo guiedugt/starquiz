@@ -49,4 +49,80 @@ describe('game actions', () => {
       expect(actual).toEqual(expected)
     })
   })
+
+  describe('saveScore', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.SAVE_SCORE,
+        payload: 'mock'
+      }
+
+      const actual = actions.saveScore('mock')
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
+  describe('saveScoreSuccess', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.SAVE_SCORE_SUCCESS
+      }
+
+      const actual = actions.saveScoreSuccess('mock')
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
+  describe('saveScoreFailure', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.SAVE_SCORE_FAILURE,
+        payload: 'mock'
+      }
+
+      const actual = actions.saveScoreFailure('mock')
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
+  describe('getScores', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.GET_SCORES
+      }
+
+      const actual = actions.getScores('mock')
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
+  describe('getScoresSuccess', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.GET_SCORES_SUCCESS,
+        payload: 'mock'
+      }
+
+      const actual = actions.getScoresSuccess('mock')
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
+  describe('getScoresFailure', () => {
+    it('Should return the expected value', () => {
+      const expected = {
+        type: types.GET_SCORES_FAILURE,
+        payload: 'mock'
+      }
+
+      const actual = actions.getScoresFailure('mock')
+
+      expect(actual).toEqual(expected)
+    })
+  })
 })
