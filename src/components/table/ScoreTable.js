@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { StyledTable } from './styles/Table.styles'
+import { StyledScoreTable } from './styles/Table.styles'
 import { getScores } from '../../store/game/actions'
 
 export class ScoreTable extends Component {
@@ -14,7 +14,7 @@ export class ScoreTable extends Component {
     const { scores } = this.props
 
     return (
-      <StyledTable
+      <StyledScoreTable
         size='small'
         dataSource={scores}
         columns={this.getColumns()}
@@ -26,17 +26,20 @@ export class ScoreTable extends Component {
     {
       title: 'Name',
       dataIndex: 'name',
-      key: 'name'
+      key: 'name',
+      className: 'name-col'
     },
     {
       title: 'Email',
       dataIndex: 'email',
-      key: 'email'
+      key: 'email',
+      className: 'email-col'
     },
     {
       title: 'Score',
       dataIndex: 'score',
-      key: 'score'
+      key: 'score',
+      className: 'score-col'
     }
   ]
 }
