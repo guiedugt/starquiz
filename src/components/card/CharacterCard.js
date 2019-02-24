@@ -115,11 +115,12 @@ export class CharacterCard extends Component {
     const { score, setScore } = this.props
     message.success(`+${characterScore} points: The force is strong with you!`)
     setScore(score + characterScore)
+    setTimeout(() => this.setState({ isModalVisible: false }), 1000)
   }
 
   handleFailure = () => {
     message.error('It\'s a trap!')
-    setTimeout(() => this.setState({ isModalVisible: false }), 1200)
+    setTimeout(() => this.setState({ isModalVisible: false }), 1000)
   }
 
   toggleModal = () => {
