@@ -66,7 +66,8 @@ describe('game actions', () => {
   describe('saveScoreSuccess', () => {
     it('Should return the expected value', () => {
       const expected = {
-        type: types.SAVE_SCORE_SUCCESS
+        type: types.SAVE_SCORE_SUCCESS,
+        payload: 'mock'
       }
 
       const actual = actions.saveScoreSuccess('mock')

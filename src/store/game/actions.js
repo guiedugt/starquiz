@@ -34,8 +34,9 @@ export const saveScore = gameInfo => ({
   payload: gameInfo
 })
 
-export const saveScoreSuccess = () => ({
-  type: SAVE_SCORE_SUCCESS
+export const saveScoreSuccess = scores => ({
+  type: SAVE_SCORE_SUCCESS,
+  payload: scores
 })
 
 export const saveScoreFailure = error => ({

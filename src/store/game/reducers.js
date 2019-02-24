@@ -47,6 +47,7 @@ export default createReducer(initialState, {
   [SAVE_SCORE_SUCCESS]: (state, action) => ({
     ...state,
     scoreSaved: true,
+    scores: action.payload,
     error: initialState.error
   }),
   [SAVE_SCORE_FAILURE]: (state, action) => ({

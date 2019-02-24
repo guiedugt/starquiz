@@ -50,7 +50,7 @@ describe('game sagas', () => {
   describe('saveScore saga function', () => {
     it('returns correct success action on success operation', async () => {
       const dispatchMock = jest.fn()
-      const successResultMock = [{ mock: 'mock' }]
+      const successResultMock = ['mock']
 
       jest
         .spyOn(Storage.prototype, 'setItem')

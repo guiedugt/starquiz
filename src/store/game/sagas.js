@@ -27,8 +27,9 @@ export function * startGame ({ payload }) {
 export function * saveScore ({ payload }) {
   try {
     const scores = JSON.parse(localStorage.getItem('scores')) || []
-    localStorage.setItem('scores', JSON.stringify([...scores, payload]))
-    yield put(actions.saveScoreSuccess())
+    const newScores = [...scores, payload]
+    localStorage.setItem('scores', JSON.stringify(newScores))
+    yield put(actions.saveScoreSuccess(newScores))
     message.success('Score saved successfuly')
   } catch (error) {
     const errorMessage = 'Failed to save score'
