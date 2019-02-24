@@ -16,7 +16,7 @@ export const ScoreModal = ({
       footer={null}
     >
       <h2>You Scored {score} points!</h2>
-      <p>Fill in your info to save your score:</p>
+      <p>Fill in your info to save the score:</p>
       <ScoreForm />
     </StyledModal>
   )
