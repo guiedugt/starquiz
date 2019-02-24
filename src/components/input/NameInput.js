@@ -20,6 +20,7 @@ export const NameInput = ({
         prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
         placeholder='Name'
         autoComplete='name'
+        autoFocus
       />
     </ValidatedSharedInput>
   )
