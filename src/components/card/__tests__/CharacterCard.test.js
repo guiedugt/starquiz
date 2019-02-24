@@ -3,7 +3,9 @@ import { shallow } from 'enzyme'
 import { CharacterCard } from '../CharacterCard'
 
 const props = {
-  image: 'mock'
+  image: 'mock',
+  setScore: jest.fn(),
+  score: 0
 }
 
 describe('(Component) CharacterCard', () => {

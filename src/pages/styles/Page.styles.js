@@ -12,6 +12,7 @@ const pageStyle = css`
 
 const homePageStyle = blur => css`
   ${pageStyle};
+  transition: filter .4s ease-out;
   ${blur && 'filter: blur(.5rem)'};
 `
 
@@ -22,7 +23,9 @@ const containerStyle = css`
 `
 
 export const StyledHomePage = props => (
-  <main css={homePageStyle(props.blur)} {...props} />
+  <main css={homePageStyle(props.blur)}>
+    {props.children}
+  </main>
 )
 
 export const Container = props => (

@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { Spin, Button, Popover, message } from 'antd'
 import { get } from 'lodash'
 import CharacterModal from '../modal/CharacterModal'
 import SearchInput from '../input/SearchInput'
 import { StyledCharacterCard, Image } from './styles/Card.styles'
+import { setScore } from '../../store/game/actions'
 
 export class CharacterCard extends Component {
   static propTypes = {
     character: PropTypes.object.isRequired,
+    setScore: PropTypes.func.isRequired,
+    score: PropTypes.number.isRequired,
     majorScore: PropTypes.number,
     minorScore: PropTypes.number
   }
@@ -21,7 +26,7 @@ export class CharacterCard extends Component {
 
   state = {
     isModalVisible: false,
-    score: this.props.majorScore,
+    characterScore: this.props.majorScore,
     error: '',
     success: ''
   }
@@ -33,7 +38,7 @@ export class CharacterCard extends Component {
     !prevState.isModalVisible &&
       this.state.isModalVisible &&
       this.focusInput(this.modalInput) &&
-      this.setState({ score: this.props.minorScore })
+      this.setState({ characterScore: this.props.minorScore })
   }
 
   render () {
@@ -106,12 +111,16 @@ export class CharacterCard extends Component {
   }
 
   handleSuccess = () => {
-    message.success(`+${this.state.score} points: The force is strong with you!`)
+    const { characterScore } = this.state
+    const { score, setScore } = this.props
+    message.success(`+${characterScore} points: The force is strong with you!`)
+    setScore(score + characterScore)
+    setTimeout(() => this.setState({ isModalVisible: false }), 1000)
   }
 
   handleFailure = () => {
     message.error('It\'s a trap!')
-    setTimeout(() => this.setState({ isModalVisible: false }), 1200)
+    setTimeout(() => this.setState({ isModalVisible: false }), 1000)
   }
 
   toggleModal = () => {
@@ -119,4 +128,13 @@ export class CharacterCard extends Component {
   }
 }
 
-export default CharacterCard
+const mapStateToProps = ({ game }) => ({
+  score: game.score
+})
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({
+    setScore
+  }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterCard)

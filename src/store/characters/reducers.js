@@ -11,6 +11,7 @@ import {
 const initialState = {
   item: null,
   items: [],
+  page: 1,
   loading: false,
   error: ''
 }
@@ -18,6 +19,7 @@ const initialState = {
 export default createReducer(initialState, {
   [FETCH_CHARACTERS]: (state, action) => ({
     ...state,
+    page: action.payload,
     loading: true,
     error: initialState.error
   }),

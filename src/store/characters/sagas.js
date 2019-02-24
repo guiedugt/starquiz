@@ -5,10 +5,10 @@ import * as actions from './actions'
 import * as types from './constants'
 import * as services from './services'
 
-export function * fetchCharacters ({ payload }) {
+export function * fetchCharacters ({ payload: page }) {
   try {
-    const newCharacters = yield call(services.fetchCharacters, payload)
     const oldCharacters = yield select(state => state.characters.items)
+    const newCharacters = yield call(services.fetchCharacters, page + 1)
     const props = Object.keys(newCharacters).filter(key => isNaN(key))
     const characters = [...oldCharacters, ...newCharacters]
     props.forEach(prop => { characters[prop] = newCharacters[prop] })
@@ -25,11 +25,11 @@ export function * fetchCharacters ({ payload }) {
   }
 }
 
-export function * fetchCharacter ({ payload }) {
+export function * fetchCharacter ({ payload: url }) {
   try {
     const characters = yield select(state => state.characters.items)
-    let character = characters.find(character => character.url === payload)
-    if (!character) character = yield call(services.fetchCharacter, payload)
+    let character = characters.find(character => character.url === url)
+    if (!character) character = yield call(services.fetchCharacter, url)
     yield put(actions.fetchCharacterSuccess(character))
     const characterWithRelationships = yield call(services.populateCharacterRelationships, character)
     yield put(actions.fetchCharacterSuccess({ ...characterWithRelationships }))

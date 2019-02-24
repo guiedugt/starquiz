@@ -7,9 +7,9 @@ import {
   FETCH_CHARACTER_FAILURE
 } from './constants'
 
-export const fetchCharacters = query => ({
+export const fetchCharacters = page => ({
   type: FETCH_CHARACTERS,
-  payload: query
+  payload: page
 })
 
 export const fetchCharactersSuccess = characters => ({
