@@ -12,6 +12,7 @@ const pageStyle = css`
 
 const homePageStyle = blur => css`
   ${pageStyle};
+  transition: filter .4s ease-out;
   ${blur && 'filter: blur(.5rem)'};
 `
 
