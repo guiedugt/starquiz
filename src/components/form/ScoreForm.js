@@ -11,8 +11,10 @@ import { StyledForm } from './styles/Form.styles'
 import { saveScore } from '../../store/game/actions'
 
 const handleSubmit = (values, formikBag) => {
-  const { score } = formikBag.props
-  formikBag.props.saveScore({ ...values, score })
+  const { score, saveScore, onSubmit } = formikBag.props
+  const submitValues = { ...values, score }
+  saveScore(submitValues)
+  onSubmit(submitValues)
 }
 
 const validationSchema = props => {
@@ -51,7 +53,12 @@ export const ScoreForm = ({
 ScoreForm.propTypes = {
   isValid: PropTypes.bool,
   errors: PropTypes.object,
-  values: PropTypes.object
+  values: PropTypes.object,
+  onSubmit: PropTypes.func
+}
+
+ScoreForm.defaultProps = {
+  onSubmit: () => { }
 }
 
 const mapStateToProps = ({ game }) => ({
