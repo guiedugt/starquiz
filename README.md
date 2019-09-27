@@ -1,4 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# StarQuiz
+
+Can You Name All of The Star Wars Characters?
+
+## Screenshots
+
+### Intro
+![Intro](/src/assets/readme-intro.png)
+
+### Rules
+![Rules](/src/assets/readme-rules.png)
+
+### Details
+![Details](/src/assets/readme-details.png)
+
+### Guess
+![Guess](/src/assets/readme-guess.png)
+
+### Leaderboards
+![Leaderboards](/src/assets/readme-leaderboards.png)
+
+### Mobile
+![Mobile](/src/assets/readme-mobile.png)
+
+### Score
+![Score](/src/assets/readme-score.png)
+
+# This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
