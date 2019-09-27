@@ -20,14 +20,15 @@ Then May The Force Be With You!
 ### Guess
 ![Guess](/src/assets/readme-guess.png)
 
+### Score
+![Score](/src/assets/readme-score.png)
+
 ### Leaderboards
 ![Leaderboards](/src/assets/readme-leaderboards.png)
 
 ### Mobile
 ![Mobile](/src/assets/readme-mobile.png)
 
-### Score
-![Score](/src/assets/readme-score.png)
 
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
