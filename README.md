@@ -2,6 +2,10 @@
 
 Can You Name All of The Star Wars Characters?
 
+Then May The Force Be With You!
+
+[Start Game](https://guilhermeed.github.io/starquiz)
+
 ## Screenshots
 
 ### Intro
